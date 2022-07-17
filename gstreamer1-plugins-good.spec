@@ -15,7 +15,7 @@
 
 Name:           gstreamer1-plugins-good
 Version:        1.16.1
-Release:        2%{?gitcommit:.git%{shortcommit}}%{?dist}
+Release:        3%{?gitcommit:.git%{shortcommit}}%{?dist}
 Summary:        GStreamer plugins with good code and licensing
 
 License:        LGPLv2+
@@ -28,6 +28,9 @@ Source0:        gst-plugins-good-%{version}.tar.xz
 %else
 Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
 %endif
+
+Patch0:         d62cecf193d6bf3b16fe91d725f4514161f602c3.patch
+Patch1:         9efd93e20dd7789e4172ad6c8f4108271b3fb1ee.patch
 
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -161,6 +164,8 @@ to be installed.
 
 %prep
 %setup -q -n gst-plugins-good-%{version}
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure --disable-silent-rules --disable-fatal-warnings \
@@ -345,6 +350,10 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Thu Jul 14 2022 Wim Taymans <wtaymans@redhat.com> - 1.16.1-3
+- Add patches for matroskademux. CVE-2021-3497
+- Resolves: rhbz#1948942
+
 * Wed Dec 9 2020 Wim Taymans <wtaymans@redhat.com> - 1.16.1-2
 - Suppress documentation in Flatpak builds
 - Resolves: rhbz#1895938
