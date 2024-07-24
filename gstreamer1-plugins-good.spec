@@ -6,7 +6,7 @@
 
 Name:           gstreamer1-plugins-good
 Version:        1.16.1
-Release:        4%{?gitcommit:.git%{shortcommit}}%{?dist}
+Release:        5
 Summary:        GStreamer plugins with good code and licensing
 
 License:        LGPLv2+
@@ -338,6 +338,9 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Wed Jul 24 2024 Eze Garcia <egarcia@een.com> - 1.16.1-5
+- Add EOI fix
+
 * Wed Jan 17 2024 Wim Taymans <wtaymans@redhat.com> - 1.16.1-4
 - CVE-2023-37327: integer overflow leading to heap overwrite in
   FLAC image tag handling
