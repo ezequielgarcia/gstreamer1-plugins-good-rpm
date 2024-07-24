@@ -12,7 +12,7 @@ Summary:        GStreamer plugins with good code and licensing
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 
-Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
+Source0:        https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
 Patch0:         d62cecf193d6bf3b16fe91d725f4514161f602c3.patch
 Patch1:         9efd93e20dd7789e4172ad6c8f4108271b3fb1ee.patch
 Patch2:		0001-flacparse-Avoid-integer-overflow-in-available-data-c.patch
