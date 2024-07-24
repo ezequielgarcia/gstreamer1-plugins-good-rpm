@@ -16,6 +16,7 @@ Source0:        https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugi
 Patch0:         d62cecf193d6bf3b16fe91d725f4514161f602c3.patch
 Patch1:         9efd93e20dd7789e4172ad6c8f4108271b3fb1ee.patch
 Patch2:		0001-flacparse-Avoid-integer-overflow-in-available-data-c.patch
+Patch3:		0001-jpegdec-Fix-incorrect-logic-in-EOI-tag-detection.patch
 
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -152,6 +153,7 @@ to be installed.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %configure --disable-silent-rules --disable-fatal-warnings \
