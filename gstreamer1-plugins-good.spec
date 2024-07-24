@@ -1,17 +1,8 @@
 %global         majorminor      1.0
 
 # Only build extras on Fedora
-%if 0%{?fedora}
 %bcond_without extras
 %bcond_without qt
-%else
-%bcond_with extras
-%bcond_with qt
-%endif
-
-#global gitrel     140
-#global gitcommit  9865730cfa5b3a8b2560d082e7e56b350042d3d2
-#global shortcommit %(c=%{gitcommit}; echo ${c:0:5})
 
 Name:           gstreamer1-plugins-good
 Version:        1.16.1
@@ -22,14 +13,6 @@ License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 
 Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
-#%if 0%{?gitrel}
-## git clone git://anogit.freedesktop.org/gstreamer/gst-plugins-good
-## cd gst-plugins-good; git reset --hard %{gitcommit}; ./autogen.sh; make; make distcheck
-#Source0:        gst-plugins-good-%{version}.tar.xz
-#%else
-#Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
-#%endif
-
 Patch0:         d62cecf193d6bf3b16fe91d725f4514161f602c3.patch
 Patch1:         9efd93e20dd7789e4172ad6c8f4108271b3fb1ee.patch
 Patch2:		0001-flacparse-Avoid-integer-overflow-in-available-data-c.patch
